@@ -1,0 +1,25 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1786496277
+icon.svg::CompressedTexture2D::403803071398931146::1786477437::1786477442::1::::<><><>0<>0<>707ea64af69dba1ffb135becee7244d5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Assets/::1786477664
+::res://Assets/arts/::1786477664
+Ball.png::CompressedTexture2D::4600290395476800391::1786477664::1786477664::1::::<><><>0<>0<>3dc9b53b81e1cf2a3aa2a080fdf58104<>res://.godot/imported/Ball.png-2b6c5581e5c20a5f2a9dad3025cb86dd.ctex::
+BallMotion.png::CompressedTexture2D::9158364477716486763::1786477664::1786477664::1::::<><><>0<>0<>e9cc25541c2181a219860b45a22dd7b0<>res://.godot/imported/BallMotion.png-f9a9d9e015e5da2fcd8b4f14de2345e8.ctex::
+Board.png::CompressedTexture2D::1403773684185891183::1786477664::1786477664::1::::<><><>0<>0<>283ed1009ef4777f81496593a4b78416<>res://.godot/imported/Board.png-206f3f1f932c6894d963b5f76c28076b.ctex::
+Computer.png::CompressedTexture2D::9055114344563987150::1786477664::1786477664::1::::<><><>0<>0<>1efb2ca9e04087cb4fb68d258aa83748<>res://.godot/imported/Computer.png-01f1dd6ce2263e7d0c38899ce2def253.ctex::
+Player.png::CompressedTexture2D::752327139183878013::1786477664::1786477664::1::::<><><>0<>0<>fab16b1f21c8e68f206921721258274d<>res://.godot/imported/Player.png-7e1acebb3d7b7afb71fbe6d27e10cbc3.ctex::
+ScoreBar.png::CompressedTexture2D::1381389262345892509::1786477664::1786477664::1::::<><><>0<>0<>cb410d20e4b8bffd7a5cbc6e6e6c128f<>res://.godot/imported/ScoreBar.png-99e4ec246f4fe0012ed7d49171a5d033.ctex::
+::res://Assets/fonts/::1786489098
+Font download link.txt::TextFile::-1::1786489098::0::1::::<><><>0<>0<><>::
+::res://Ball/::1786496104
+ball.gd::GDScript::8901449006780463177::1786488355::0::1::::<>CharacterBody2D<><>0<>0<><>::
+ball.tscn::PackedScene::7248938776171239864::1786496104::0::1::::<><><>0<>0<><>::uid://b6sod08b7rhpf::::res://Assets/arts/Ball.png<>uid://dy26tgx78euaj::::res://Ball/ball.gd<>uid://d3qm6pgbn5e1h::::res://Assets/arts/BallMotion.png
+::res://Characters/::1786488391
+character.gd::GDScript::8185395713162755526::1786485809::0::1::::Character<>CharacterBody2D<><>0<>0<><>::
+computer.tscn::PackedScene::694848261321730650::1786488391::0::1::::<><><>0<>0<><>::uid://du6ua3dwckk67::::res://Characters/Computer/computer.gd<>uid://d2amn7j5h0d1w::::res://Assets/arts/Computer.png
+player.tscn::PackedScene::255344804293360341::1786485809::0::1::::<><><>0<>0<><>::uid://kyoyoc4ou8n6::::res://Assets/arts/Player.png<>uid://dovcjh325gim5::::res://Characters/character.gd
+::res://Characters/Computer/::1786489583
+computer.gd::GDScript::8628250450362008150::1786489583::0::1::::<>Character<><>0<>0<><>::
+::res://Game/::1786496104
+game.tscn::PackedScene::8031749895778736243::1786489762::0::1::::<><><>0<>0<><>::uid://dvxqykv8517n::::res://Characters/player.tscn<>uid://bk4bte4wobjgf::::res://Game/game_manager.gd<>uid://j5ubxbp8xq6u::::res://Characters/computer.tscn<>uid://dbjo7yyqa0rue::::res://Ball/ball.tscn<>uid://t887hj63lmw2::::res://Assets/arts/Board.png
+game_manager.gd::GDScript::3148270977929184477::1786496104::0::1::::<>Node2D<><>0<>0<><>::

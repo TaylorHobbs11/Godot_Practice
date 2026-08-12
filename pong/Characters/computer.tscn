@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://j5ubxbp8xq6u"]
+
+[ext_resource type="Script" uid="uid://du6ua3dwckk67" path="res://Characters/Computer/computer.gd" id="1_13si5"]
+[ext_resource type="Texture2D" uid="uid://d2amn7j5h0d1w" path="res://Assets/arts/Computer.png" id="2_dqbtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(16, 120)
+
+[node name="Computer" type="CharacterBody2D" unique_id=930201523 groups=["paddle"]]
+script = ExtResource("1_13si5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116178574]
+shape = SubResource("RectangleShape2D_3xd07")
+one_way_collision = true
+one_way_collision_direction = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881892005]
+texture = ExtResource("2_dqbtg")
