@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvguo5fg4c5n7"
+path="res://.godot/imported/die.ogg-66283f627dd93bdaa4ff8f4ce210d4e4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/die.ogg"
+dest_files=["res://.godot/imported/die.ogg-66283f627dd93bdaa4ff8f4ce210d4e4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

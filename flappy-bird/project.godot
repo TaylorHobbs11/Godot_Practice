@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Flappy Bird"
+run/main_scene="uid://m7jq3rsjcfwa"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,8 @@ GameManager="*uid://c6im2gd63cth7"
 
 [display]
 
+window/size/viewport_width=288
+window/size/viewport_height=512
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -37,6 +40,7 @@ Jump={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://hifqh3yf5eti"]
+
+[ext_resource type="PackedScene" uid="uid://cq7jpbtwb6gxs" path="res://Level/pipe.tscn" id="1_hh1vl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(11, 122)
+
+[node name="Pipes" type="Node2D" unique_id=93807543]
+
+[node name="BottomPipe" parent="." unique_id=1890059116 instance=ExtResource("1_hh1vl")]
+position = Vector2(0, 60)
+
+[node name="TopPipe" parent="." unique_id=352063900 instance=ExtResource("1_hh1vl")]
+position = Vector2(0, -60)
+rotation = 3.1415927
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=1747944838]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1143318347]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_3xd07")
+debug_color = Color(0.3987749, 0.5468148, 0.23769641, 0.41960785)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://0h60bv6gx0px"
+path="res://.godot/imported/swoosh.ogg-3cff6e1c4f4f177c01d1bd96c42c81eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/swoosh.ogg"
+dest_files=["res://.godot/imported/swoosh.ogg-3cff6e1c4f4f177c01d1bd96c42c81eb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
