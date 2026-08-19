@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export_category("Movement")
 @export var _jump_velocity: float = 256
@@ -12,3 +12,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y += _gravity * delta
 		velocity.y = min(velocity.y, _terminal_velocity)
 	move_and_slide()
+
+	if is_on_floor(): death()
+
+func death() -> void:
+	get_tree().paused = true

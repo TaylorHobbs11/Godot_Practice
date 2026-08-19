@@ -5,7 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
 size = Vector2(43, 317)
 
-[node name="Pipe" type="StaticBody2D" unique_id=1890059116]
+[node name="Pipe" type="Area2D" unique_id=110740850]
+collision_mask = 256
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103554853]
 texture = ExtResource("1_xukr3")
