@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bc40lwyjgb141"]
+
+[ext_resource type="Script" uid="uid://c7k0ijx2r8ihm" path="res://UI/game_ui.gd" id="1_kfjql"]
+[ext_resource type="FontFile" uid="uid://b2yd58x7qhw5o" path="res://Assets/Font/TitanOne-Regular.ttf" id="1_mp46i"]
+[ext_resource type="AudioStream" uid="uid://cvguo5fg4c5n7" path="res://Assets/Sound Effects/die.ogg" id="3_h0rig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kfjql"]
+font = ExtResource("1_mp46i")
+font_color = Color(0.8901961, 0.08627451, 0.16078432, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0rig"]
+font = ExtResource("1_mp46i")
+font_size = 32
+font_color = Color(0.99934214, 0.9056758, 0.8951363, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oifk"]
+font = ExtResource("1_mp46i")
+font_size = 32
+font_color = Color(0.53621835, 0.7945738, 0.8137462, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameUI" type="Control" unique_id=146983479]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kfjql")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1852250437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Score" type="Label" parent="MarginContainer" unique_id=2042697608]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_kfjql")
+
+[node name="Gameover" type="Label" parent="MarginContainer" unique_id=456661482]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_h0rig")
+
+[node name="PressJump" type="Label" parent="MarginContainer" unique_id=231175680]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Jump"
+label_settings = SubResource("LabelSettings_2oifk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1783332555]
+stream = ExtResource("3_h0rig")
+
+[node name="Timer" type="Timer" parent="." unique_id=2071879797]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

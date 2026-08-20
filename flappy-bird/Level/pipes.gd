@@ -1,6 +1,7 @@
 class_name Pipes extends Node2D
 
 @export var _scroll_speed: float = 120
+@onready var _points_sound: AudioStreamPlayer2D = $PointsSound
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -20,4 +21,6 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 func _on_score_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("You have scored")
+		_points_sound.play()
 		GameManager.current_score += 1
+		

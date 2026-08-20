@@ -34,9 +34,7 @@ func _on_boundaries_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.death()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"):
-		GameManager.load_main_screen()
+
 
 func score() -> void:
 	_score.text = str(GameManager.current_score)

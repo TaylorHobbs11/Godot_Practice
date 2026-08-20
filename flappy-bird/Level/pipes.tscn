@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq7jpbtwb6gxs" path="res://Level/pipe.tscn" id="1_hh1vl"]
 [ext_resource type="Script" uid="uid://c7f1vguiie1e6" path="res://Level/pipes.gd" id="1_skvfy"]
+[ext_resource type="AudioStream" uid="uid://cix4lfpt7k2ob" path="res://Assets/Sound Effects/point.ogg" id="3_ikdo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
 size = Vector2(11, 122)
@@ -27,6 +28,9 @@ debug_color = Color(0.3987749, 0.5468148, 0.23769641, 0.41960785)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1370254585]
 position = Vector2(70, 0)
+
+[node name="PointsSound" type="AudioStreamPlayer2D" parent="." unique_id=436466846]
+stream = ExtResource("3_ikdo8")
 
 [connection signal="body_entered" from="BottomPipe" to="." method="_on_pipe_body_entered"]
 [connection signal="body_entered" from="TopPipe" to="." method="_on_pipe_body_entered"]

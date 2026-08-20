@@ -2,10 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://tau53vf8m5ks" path="res://Assets/Environment/background-day.png" id="1_gqyk6"]
 [ext_resource type="Script" uid="uid://ddueli6w8nfr1" path="res://Level/main.gd" id="1_y023f"]
-[ext_resource type="PackedScene" uid="uid://m7jq3rsjcfwa" path="res://Level/game.tscn" id="2_76v5r"]
-[ext_resource type="LabelSettings" uid="uid://caefgrjys2blm" path="res://Assets/Font/Title_label.tres" id="2_eo7o3"]
 [ext_resource type="FontFile" uid="uid://b2yd58x7qhw5o" path="res://Assets/Font/TitanOne-Regular.ttf" id="3_q3hbn"]
 [ext_resource type="AudioStream" uid="uid://d1l60qxg35kys" path="res://Assets/Sound Effects/bgm_menu.mp3" id="4_q3hbn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3hbn"]
+font = ExtResource("3_q3hbn")
+font_size = 46
+font_color = Color(0.8901961, 0.85490197, 0.16078432, 1)
+outline_size = 5
+outline_color = Color(0.6509804, 0.3254902, 0.19215687, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oycwn"]
 font = ExtResource("3_q3hbn")
@@ -73,7 +78,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y023f")
-game_scene = ExtResource("2_76v5r")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1270666104]
 layout_mode = 1
@@ -101,7 +105,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Flappy Bird"
-label_settings = ExtResource("2_eo7o3")
+label_settings = SubResource("LabelSettings_q3hbn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
