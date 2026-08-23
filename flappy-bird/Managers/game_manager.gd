@@ -1,7 +1,5 @@
 extends Node
 
-var current_score: int = 0
-
 const MAIN_SCENE: PackedScene = preload("res://Level/main.tscn")
 const GAME_SCENE: PackedScene = preload("res://Level/game.tscn")
 

@@ -61,17 +61,5 @@ autostart = true
 
 [node name="GameUI" parent="CanvasLayer" unique_id=146983479 instance=ExtResource("5_1par0")]
 
-[node name="Score" type="Label" parent="CanvasLayer" unique_id=2137102896]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="body_entered" from="Boundaries" to="." method="_on_boundaries_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

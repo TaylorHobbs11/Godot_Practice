@@ -3,19 +3,14 @@ extends Node2D
 @export var pipe_scene: PackedScene
 @onready var highest_spawn_point: Marker2D = $HighestSpawnPoint
 @onready var lowest_spawn_point: Marker2D = $LowestSpawnPoint
-@onready var _score: Label = $CanvasLayer/Score
 
 var previous_score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ScoreManager.reset_score()
 	spawn_pipes()
 
-func _process(_delta: float) -> void:
-	var current_score = GameManager.current_score
-	if current_score != previous_score:
-		previous_score = current_score
-		score()
 	
 
 func spawn_pipes() -> void:
@@ -33,8 +28,3 @@ func _on_timer_timeout() -> void:
 func _on_boundaries_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.death()
-
-
-
-func score() -> void:
-	_score.text = str(GameManager.current_score)

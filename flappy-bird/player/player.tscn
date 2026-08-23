@@ -1,8 +1,38 @@
 [gd_scene format=3 uid="uid://cbe848vrg1cnb"]
 
 [ext_resource type="Script" uid="uid://cu3to1jm3mwfx" path="res://player/Script/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://b2vm27c4koklb" path="res://Assets/Character/yellowbird-upflap.png" id="2_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://dgca8aufrdx73" path="res://Assets/Character/yellowbird-midflap.png" id="2_rkbax"]
 [ext_resource type="AudioStream" uid="uid://cxx2qrvjhate1" path="res://Assets/Sound Effects/wing.ogg" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://b6s8wcpx7vqfb" path="res://Assets/Character/yellowbird-downflap.png" id="4_g6k8r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qjkh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkbax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g6k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkbax")
+}],
+"loop": 0,
+"name": &"Flap",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rkbax")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 12.0
@@ -11,8 +41,12 @@ radius = 12.0
 collision_layer = 256
 script = ExtResource("1_oul6g")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045563223]
-texture = ExtResource("2_rkbax")
+[node name="Bird" type="AnimatedSprite2D" parent="." unique_id=1527449954]
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"Flap"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173401067]
 shape = SubResource("CircleShape2D_rkbax")

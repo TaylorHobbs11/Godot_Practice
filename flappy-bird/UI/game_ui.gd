@@ -1,5 +1,6 @@
 class_name GameUI extends Control
 
+@onready var score: Label = $MarginContainer/Score
 @onready var _gameover: Label = $MarginContainer/Gameover
 @onready var _press_jump: Label = $MarginContainer/PressJump
 @onready var _audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -7,11 +8,15 @@ class_name GameUI extends Control
 
 func _ready() -> void:
 	SignalHub.player_died.connect(game_over)
+	SignalHub.point_scored.connect(update_score)
 	_press_jump.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu") or (event.is_action_pressed("Jump") and _press_jump.visible == true):
+	if event.is_action_pressed("Menu") or (event.is_action_pressed("Jump") and _press_jump.visible):
 		GameManager.load_main_screen()
+
+func update_score(new_score: int) -> void:
+	score.text = str(new_score)
 
 func game_over() -> void:
 	_gameover.visible = true

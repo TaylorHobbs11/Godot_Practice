@@ -21,6 +21,6 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 func _on_score_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("You have scored")
+		ScoreManager.add_point()
 		_points_sound.play()
-		GameManager.current_score += 1
 		
