@@ -1,1 +1,10 @@
+Hello,
+This is my second game that I have completed making. I originally was wanting to make a jetpack joy ride clone since that was one of my favorite mobile games as a kid. I tried to find free assets from that game to use in my clone but had no luck. I switched over to Flappy Bird due to how similar the games were as well as I could find some free assets to use.
 
+During my time working on this clone I have learned how to have obstacles spawn with in a random area and time of each other so each part of the game has a different challenge. I also learned how to remove each instance of a set of pipes so that performance wouldn't be an issue (Not like this game really needed optimizations).
+I have learned how to use AudioStreamPlayers to play sound effects and music for the game as well as some AnimatedSprite2D's to react when the player presses the fly button. To make the animation of it feel better I also added in some rotation based on how the player would be moving. For example if the player starts falling they would be able to see the bird start looking down towards the ground and it's the same for when it fly's upwards.
+I have learned how to use some Control/UI nodes in Godot. They are very similar to how flex-boxes work for HTML and CSS. There is still going to be a hard learning curve to learn for all things UI but now that I see they are similar to things I have experience with in the past I don't see this being as difficult as originally thought.
+
+I can't wait to learn how to make more animations and put them into a StateMachine so it reacts based off of the different actions that the player would make. I can't wait to learn how to make my own assets coming up in the next few games and see how I can get my art workflow down and meshed in well with my game development side.
+
+I have no idea how some games can handle different player states so dynamically but can't wait to one day find out how to do the same. call_deferred is still an enigma to me but that's probably because I haven't need to use it yet. 3D is something that is daunting to even think about wrapping my head around.
