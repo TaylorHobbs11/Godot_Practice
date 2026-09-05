@@ -1,7 +1,0 @@
-res://Game/game.tscn
-res://Game/game_manager.gd
-res://Ball/ball.tscn
-res://Ball/ball.gd
-res://Characters/Computer/computer.gd
-res://Characters/computer.tscn
-res://Characters/player.tscn
