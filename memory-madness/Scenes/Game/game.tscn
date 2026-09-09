@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwliesedvreqm"]
 
-[ext_resource type="PackedScene" uid="uid://cff6b5tvehowi" path="res://Scenes/memory_tile.tscn" id="1_ciybh"]
+[ext_resource type="Script" uid="uid://cxcqq1fjksdwy" path="res://Scenes/Game/game.gd" id="1_flgk0"]
 [ext_resource type="LabelSettings" uid="uid://bnrivf73l5gum" path="res://Resources/LabelWhite24.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://c5sg10ux4bnqk" path="res://Assets/ui/blue_button00.png" id="3_vifcx"]
 [ext_resource type="Texture2D" uid="uid://x2c11ohulhnx" path="res://Assets/ui/green_button00.png" id="4_xfil1"]
@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_flgk0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=94724542]
 layout_mode = 1
@@ -30,42 +31,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 4
 columns = 4
-
-[node name="MemoryTile" parent="HBoxContainer/GridContainer" unique_id=1250406833 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile2" parent="HBoxContainer/GridContainer" unique_id=1958407276 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile3" parent="HBoxContainer/GridContainer" unique_id=1460411754 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile4" parent="HBoxContainer/GridContainer" unique_id=626409072 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile5" parent="HBoxContainer/GridContainer" unique_id=2073645580 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile6" parent="HBoxContainer/GridContainer" unique_id=1757414247 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile7" parent="HBoxContainer/GridContainer" unique_id=979684904 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile8" parent="HBoxContainer/GridContainer" unique_id=659539106 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile9" parent="HBoxContainer/GridContainer" unique_id=2119622354 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile10" parent="HBoxContainer/GridContainer" unique_id=2097842028 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile11" parent="HBoxContainer/GridContainer" unique_id=1211255548 instance=ExtResource("1_ciybh")]
-layout_mode = 2
-
-[node name="MemoryTile12" parent="HBoxContainer/GridContainer" unique_id=1853432420 instance=ExtResource("1_ciybh")]
-layout_mode = 2
 
 [node name="Spacer3" type="Control" parent="HBoxContainer" unique_id=594280660]
 layout_mode = 2
@@ -141,3 +106,5 @@ vertical_alignment = 1
 [node name="Spacer" type="Control" parent="HBoxContainer" unique_id=389850061]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dwn6en4bjafyy" path="res://Assets/ui/level_select_frame_select_128.png" id="2_2b86x"]
 [ext_resource type="Texture2D" uid="uid://b58uokiq7psud" path="res://Assets/ui/level_select_frame_hover_128.png" id="3_6j25p"]
 [ext_resource type="LabelSettings" uid="uid://dw6fl0tt0fhbi" path="res://Resources/LabelWhite48.tres" id="4_2b86x"]
+[ext_resource type="Script" uid="uid://iv3nmae04n7x" path="res://Scenes/LevelButton/level_button.gd" id="4_6j25p"]
+[ext_resource type="Script" uid="uid://cto78pqlvrw73" path="res://Classes/LevelSettings.gd" id="5_f7y0e"]
+
+[sub_resource type="Resource" id="Resource_f7y0e"]
+script = ExtResource("5_f7y0e")
+metadata/_custom_type_script = "uid://cto78pqlvrw73"
 
 [node name="LevelButton" type="TextureButton" unique_id=1215138606]
 offset_right = 128.0
@@ -11,6 +17,8 @@ offset_bottom = 128.0
 texture_normal = ExtResource("1_6ttex")
 texture_pressed = ExtResource("2_2b86x")
 texture_hover = ExtResource("3_6j25p")
+script = ExtResource("4_6j25p")
+level_setting = SubResource("Resource_f7y0e")
 
 [node name="Label" type="Label" parent="." unique_id=147551861]
 layout_mode = 1
@@ -29,3 +37,5 @@ text = "0x0"
 label_settings = ExtResource("4_2b86x")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
