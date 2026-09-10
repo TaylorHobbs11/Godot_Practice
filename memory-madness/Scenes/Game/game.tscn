@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sg10ux4bnqk" path="res://Assets/ui/blue_button00.png" id="3_vifcx"]
 [ext_resource type="Texture2D" uid="uid://x2c11ohulhnx" path="res://Assets/ui/green_button00.png" id="4_xfil1"]
 [ext_resource type="Texture2D" uid="uid://cn5gjhrhrgcaa" path="res://Assets/ui/yellow_button00.png" id="5_huoen"]
+[ext_resource type="PackedScene" uid="uid://ds0j2rusds58s" path="res://Scenes/scorer.tscn" id="6_flgk0"]
 
 [node name="Game" type="Control" unique_id=1164472223]
 layout_mode = 3
@@ -106,5 +107,7 @@ vertical_alignment = 1
 [node name="Spacer" type="Control" parent="HBoxContainer" unique_id=389850061]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Scorer" parent="." unique_id=508119563 instance=ExtResource("6_flgk0")]
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
