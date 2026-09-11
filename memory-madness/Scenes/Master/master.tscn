@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://brieatah5lbeh" path="res://Scenes/Master/master.gd" id="1_f3hoe"]
 [ext_resource type="PackedScene" uid="uid://bs1x6v1m5k1vs" path="res://Scenes/Main/main.tscn" id="2_vq23j"]
 [ext_resource type="PackedScene" uid="uid://bwliesedvreqm" path="res://Scenes/Game/game.tscn" id="3_vq23j"]
+[ext_resource type="PackedScene" uid="uid://pcnvcckmh34a" path="res://Scenes/sound_controller.tscn" id="5_av24y"]
 
 [node name="Master" type="Control" unique_id=2122347685]
 layout_mode = 3
@@ -30,3 +31,5 @@ layout_mode = 1
 [node name="Game" parent="." unique_id=1164472223 instance=ExtResource("3_vq23j")]
 visible = false
 layout_mode = 1
+
+[node name="SoundController" parent="." unique_id=1963136700 instance=ExtResource("5_av24y")]
