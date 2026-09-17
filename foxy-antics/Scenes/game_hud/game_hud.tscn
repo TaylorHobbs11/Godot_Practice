@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://danqnrxdvgu4"]
+
+[ext_resource type="Script" uid="uid://da3x7fj7lubok" path="res://Scenes/game_hud/game_hud.gd" id="1_s7e7s"]
+
+[node name="GameHud" type="Control" unique_id=1740675382]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_s7e7s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2076503789]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+color = Color(0.6901961, 0.7882353, 1, 0.19607843)

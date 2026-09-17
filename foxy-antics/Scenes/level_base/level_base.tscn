@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dkbgjf5m13h5b"]
+
+[ext_resource type="PackedScene" uid="uid://danqnrxdvgu4" path="res://Scenes/game_hud/game_hud.tscn" id="1_gu4e4"]
+[ext_resource type="Script" uid="uid://c2oky2mew6mvm" path="res://Scenes/level_base/level_base.gd" id="1_rj88n"]
+
+[node name="LevelBase" type="Node" unique_id=777403084]
+script = ExtResource("1_rj88n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1220392211]
+
+[node name="GameHud" parent="CanvasLayer" unique_id=1740675382 instance=ExtResource("1_gu4e4")]
