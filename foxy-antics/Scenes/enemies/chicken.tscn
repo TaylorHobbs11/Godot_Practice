@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://ni6e4u0lgm20"]
+
+[ext_resource type="PackedScene" uid="uid://ckmijpnh58la5" path="res://Scenes/enemies/enemy_base.tscn" id="1_pi823"]
+[ext_resource type="Texture2D" uid="uid://b0sogf1sdh0sy" path="res://assets/images/enemies/Bird/Fall (40x48).png" id="2_irmk1"]
+[ext_resource type="Script" uid="uid://dybjpvvweprx0" path="res://Scenes/enemies/chicken.gd" id="2_pi823"]
+[ext_resource type="Texture2D" uid="uid://c2w2jo5yvsah3" path="res://assets/images/enemies/Bird/Hit (40x48).png" id="3_jxu78"]
+[ext_resource type="Texture2D" uid="uid://bs21uw1keygks" path="res://assets/images/enemies/Bird/Ground (40x48).png" id="5_83tda"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w66kx"]
+atlas = ExtResource("2_irmk1")
+region = Rect2(0, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ltjf"]
+atlas = ExtResource("2_irmk1")
+region = Rect2(40, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ayax"]
+atlas = ExtResource("2_irmk1")
+region = Rect2(80, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lyqb"]
+atlas = ExtResource("2_irmk1")
+region = Rect2(120, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plhg"]
+atlas = ExtResource("3_jxu78")
+region = Rect2(160, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s28y"]
+atlas = ExtResource("3_jxu78")
+region = Rect2(120, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge56q"]
+atlas = ExtResource("3_jxu78")
+region = Rect2(80, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ffea"]
+atlas = ExtResource("3_jxu78")
+region = Rect2(40, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ombug"]
+atlas = ExtResource("3_jxu78")
+region = Rect2(0, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xepf7"]
+atlas = ExtResource("5_83tda")
+region = Rect2(0, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkf4p"]
+atlas = ExtResource("5_83tda")
+region = Rect2(40, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5dpj"]
+atlas = ExtResource("5_83tda")
+region = Rect2(80, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5lrl"]
+atlas = ExtResource("5_83tda")
+region = Rect2(120, 0, 40, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8onfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w66kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ltjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ayax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lyqb")
+}],
+"loop": 2,
+"name": &"Fly",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4plhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s28y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge56q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ffea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ombug")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"Hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xepf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkf4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5dpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5lrl")
+}],
+"loop": 2,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xd07"]
+radius = 11.666666
+height = 23.333334
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq8tk"]
+
+[node name="Chicken" unique_id=2028764041 instance=ExtResource("1_pi823")]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("2_pi823")
+jump_force = -256.0
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=944565357]
+sprite_frames = SubResource("SpriteFrames_8onfc")
+animation = &"Hurt"
+autoplay = "Walk"
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1658372682]
+position = Vector2(0, -11.666667)
+shape = SubResource("CapsuleShape2D_3xd07")
+
+[node name="StompBox" parent="." index="5" unique_id=982431984]
+position = Vector2(0, -28.33333)
+
+[node name="CollisionShape2D" parent="HitArea" parent_id_path=PackedInt32Array(1520774534) index="0" unique_id=1812313260]
+position = Vector2(0, -11.666666)
+shape = SubResource("CircleShape2D_jq8tk")
+
+[node name="FlyingCooldown" type="Timer" parent="." index="7" unique_id=1126457978]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="FlyingCooldown" to="." method="_on_flying_cooldown_timeout"]

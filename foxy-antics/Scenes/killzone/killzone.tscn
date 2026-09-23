@@ -6,7 +6,7 @@
 
 [node name="Killzone" type="Area2D" unique_id=153358878]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_47m6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258094166]

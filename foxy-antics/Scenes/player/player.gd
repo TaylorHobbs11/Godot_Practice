@@ -27,6 +27,8 @@ var _start_position: Vector2
 @export var camera_bottom: int = 10000
 @onready var player_camera: Camera2D = $PlayerCamera
 
+const GROUP_NAME: String = "Player"
+
 var _damage_areas: Array[Area2D]
 
 var is_still: bool:
@@ -44,6 +46,9 @@ var _invincible_tween: Tween
 func _ready() -> void:
 	_start_position = position
 	set_camera_limits()
+
+func _enter_tree() -> void:
+	add_to_group(GROUP_NAME)
 	
 func set_camera_limits() -> void:
 	player_camera.limit_bottom = camera_bottom
