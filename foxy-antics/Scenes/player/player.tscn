@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://dpku6jrfti7bt"]
+
+[ext_resource type="Script" uid="uid://bxcrtby0n7ts4" path="res://Scenes/player/player.gd" id="1_eo61r"]
+[ext_resource type="Texture2D" uid="uid://kduxgf7wgu6q" path="res://assets/player/player.png" id="2_mxepk"]
+[ext_resource type="PackedScene" uid="uid://b6d266u8kc0s8" path="res://Scenes/player/player_camera.tscn" id="3_mxepk"]
+[ext_resource type="AudioStream" uid="uid://dgsctfc45r16f" path="res://assets/sounds/jump.wav" id="4_ca0mu"]
+[ext_resource type="AudioStream" uid="uid://b42xdf6b6082m" path="res://assets/sounds/land.wav" id="5_6upyo"]
+[ext_resource type="AudioStream" uid="uid://v4nymmgxy8qp" path="res://assets/sounds/damage.wav" id="6_6upyo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xd07"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_ca0mu"]
+resource_name = "Fall"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_t3oqc"]
+resource_name = "Hurt"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_6upyo"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_xxarj"]
+resource_name = "Jump"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_6k3cy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_kd672"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3oqc"]
+_data = {
+&"Fall": SubResource("Animation_ca0mu"),
+&"Hurt": SubResource("Animation_t3oqc"),
+&"Idle": SubResource("Animation_6upyo"),
+&"Jump": SubResource("Animation_xxarj"),
+&"RESET": SubResource("Animation_6k3cy"),
+&"Run": SubResource("Animation_kd672")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ca0mu"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6upyo"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xxarj"]
+advance_mode = 2
+advance_expression = "is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6k3cy"]
+advance_mode = 2
+advance_expression = "!is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kd672"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t3oqc"]
+states/Fall/node = SubResource("AnimationNodeAnimation_ca0mu")
+states/Fall/position = Vector2(590, 91)
+states/Jump/node = SubResource("AnimationNodeAnimation_6upyo")
+states/Jump/position = Vector2(438, 91)
+transitions = ["Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_xxarj"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_6k3cy"), "Start", "Jump", SubResource("AnimationNodeStateMachineTransition_kd672")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p8lfk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uawwb"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ag54m"]
+advance_mode = 2
+advance_expression = "!is_still"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7b1g"]
+advance_mode = 2
+advance_expression = "is_still"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ca0mu"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h0khc"]
+states/Idle/node = SubResource("AnimationNodeAnimation_p8lfk")
+states/Idle/position = Vector2(396, 99)
+states/Run/node = SubResource("AnimationNodeAnimation_uawwb")
+states/Run/position = Vector2(628, 98)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ag54m"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_g7b1g"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ca0mu")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxarj"]
+animation = &"Hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nyrd7"]
+advance_mode = 2
+advance_expression = "is_on_floor() == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ic3d6"]
+advance_mode = 2
+advance_expression = "is_on_floor() == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t3oqc"]
+advance_mode = 2
+advance_expression = "is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p8lfk"]
+advance_mode = 2
+advance_expression = "is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uawwb"]
+advance_mode = 2
+advance_expression = "!is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6upyo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3xd07"]
+states/Air/node = SubResource("AnimationNodeStateMachine_t3oqc")
+states/Air/position = Vector2(550, 100)
+states/Ground/node = SubResource("AnimationNodeStateMachine_h0khc")
+states/Ground/position = Vector2(377, 100)
+states/Hurt/node = SubResource("AnimationNodeAnimation_xxarj")
+states/Hurt/position = Vector2(467, 1)
+transitions = ["Air", "Ground", SubResource("AnimationNodeStateMachineTransition_nyrd7"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_ic3d6"), "Ground", "Hurt", SubResource("AnimationNodeStateMachineTransition_t3oqc"), "Air", "Hurt", SubResource("AnimationNodeStateMachineTransition_p8lfk"), "Hurt", "Ground", SubResource("AnimationNodeStateMachineTransition_uawwb"), "Start", "Ground", SubResource("AnimationNodeStateMachineTransition_6upyo")]
+graph_offset = Vector2(-208, -47)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jq8tk"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(10, 2)
+
+[node name="Player" type="CharacterBody2D" unique_id=925469703]
+z_index = 1
+collision_layer = 2
+script = ExtResource("1_eo61r")
+camera_left = 0
+camera_bottom = 648
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9108884]
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("2_mxepk")
+offset = Vector2(0, -16)
+hframes = 19
+frame = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=658906754]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_3xd07")
+
+[node name="PlayerCamera" parent="." unique_id=1258249551 instance=ExtResource("3_mxepk")]
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1624623437]
+stream = ExtResource("4_ca0mu")
+volume_db = -10.0
+
+[node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=921599298]
+stream = ExtResource("5_6upyo")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1997348051]
+stream = ExtResource("6_6upyo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=902061880]
+libraries/ = SubResource("AnimationLibrary_t3oqc")
+autoplay = &"Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1080565908]
+tree_root = SubResource("AnimationNodeStateMachine_3xd07")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1599758270]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1801689584]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_jq8tk")
+debug_color = Color(0.36417198, 0.6054301, 0.34648106, 0.41960785)
+
+[node name="HurtTimer" type="Timer" parent="." unique_id=626803289]
+wait_time = 0.6
+one_shot = true
+
+[node name="StompArea" type="Area2D" parent="." unique_id=1552893830]
+collision_layer = 0
+collision_mask = 272
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea" unique_id=1927071939]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_3xd07")
+debug_color = Color(0.23220241, 0.50880194, 1, 0.41960785)
+
+[connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
+[connection signal="area_exited" from="HitArea" to="." method="_on_hit_area_area_exited"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
+[connection signal="area_entered" from="StompArea" to="." method="_on_stomp_area_area_entered"]

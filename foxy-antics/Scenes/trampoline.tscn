@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://ddqxa52bwkh6k"]
+
+[ext_resource type="Script" uid="uid://ont0dcc2gjl1" path="res://Scenes/Trampoline/trampoline.gd" id="1_cds2q"]
+[ext_resource type="Texture2D" uid="uid://bwumyc0ok6540" path="res://assets/images/trampoline/Idle.png" id="2_udplr"]
+[ext_resource type="Texture2D" uid="uid://b54j7n85ogdur" path="res://assets/images/trampoline/Jump (28x28).png" id="3_kmfs6"]
+[ext_resource type="AudioStream" uid="uid://bo7serr18xciw" path="res://assets/sounds/159375__greenhourglass__8-bit-boing.wav" id="4_udplr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72gq3"]
+atlas = ExtResource("2_udplr")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u03g"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yc3u"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(28, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mf4p"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(56, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2go5"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(84, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8ysj"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(112, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0esm5"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(140, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibskq"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(168, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwlyq"]
+atlas = ExtResource("3_kmfs6")
+region = Rect2(196, 0, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72gq3")
+}],
+"loop": 0,
+"name": &"Resting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u03g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yc3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mf4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2go5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8ysj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0esm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibskq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwlyq")
+}],
+"loop": 0,
+"name": &"Trampoline_Trigger",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8tk"]
+size = Vector2(21, 8)
+
+[node name="Trampoline" type="Area2D" unique_id=1700980996]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_cds2q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1953993146]
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"Resting"
+autoplay = "Resting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879956337]
+position = Vector2(-0.5, 5.9375)
+shape = SubResource("RectangleShape2D_jq8tk")
+debug_color = Color(1, 0.32837796, 0.3259311, 0.41960785)
+
+[node name="BoingSound" type="AudioStreamPlayer" parent="." unique_id=1914921776]
+stream = ExtResource("4_udplr")
+volume_db = -10.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
