@@ -11,6 +11,7 @@ class_name EnemyBase extends CharacterBody2D
 @export_category("Lateral Movement")
 @export var _movement_speed: float = 32.0
 var _direction: int = -1
+var _hit: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -42,6 +43,9 @@ func handle_lateral_movement() -> void:
 	
 
 func _on_stomp_box_stomped() -> void:
+	if _hit: 
+		return
+	_hit = true
 	animated_sprite_2d.play("Hurt")
 	set_physics_process.call_deferred(false)
 	hit_area.set_monitorable.call_deferred(false)

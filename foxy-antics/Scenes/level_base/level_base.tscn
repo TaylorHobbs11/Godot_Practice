@@ -4,18 +4,22 @@
 [ext_resource type="Script" uid="uid://c2oky2mew6mvm" path="res://Scenes/level_base/level_base.gd" id="1_rj88n"]
 [ext_resource type="TileSet" uid="uid://dyf6f7tp7263t" path="res://Resources/tiles.tres" id="2_4mgu5"]
 [ext_resource type="PackedScene" uid="uid://dpku6jrfti7bt" path="res://Scenes/player/player.tscn" id="2_ioyet"]
+[ext_resource type="PackedScene" uid="uid://dauuay0r21cmn" path="res://Scenes/Effects/explosion.tscn" id="2_w2ekg"]
 [ext_resource type="PackedScene" uid="uid://csglnk06xrke1" path="res://Scenes/killzone/killzone.tscn" id="5_phxsx"]
 [ext_resource type="PackedScene" uid="uid://cjs4ih3cpksh7" path="res://Scenes/stomp_box.tscn" id="6_7bjju"]
 [ext_resource type="PackedScene" uid="uid://ddqxa52bwkh6k" path="res://Scenes/trampoline.tscn" id="7_0m4qr"]
 [ext_resource type="PackedScene" uid="uid://cn38yauk0ym8m" path="res://Scenes/enemies/snail.tscn" id="8_bwxnf"]
 [ext_resource type="PackedScene" uid="uid://bfwcsbb85pp1q" path="res://Scenes/enemies/pig.tscn" id="9_1ocjr"]
 [ext_resource type="PackedScene" uid="uid://ni6e4u0lgm20" path="res://Scenes/enemies/chicken.tscn" id="10_2hhf6"]
+[ext_resource type="PackedScene" uid="uid://dcyoamon6pgyu" path="res://Scenes/enemies/plant.tscn" id="12_3aspl"]
+[ext_resource type="PackedScene" uid="uid://nah6awfdusw8" path="res://Scenes/object_maker.tscn" id="12_3nj0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
 size = Vector2(46, 20)
 
 [node name="LevelBase" type="Node" unique_id=777403084]
 script = ExtResource("1_rj88n")
+explosion = ExtResource("2_w2ekg")
 
 [node name="Player" parent="." unique_id=925469703 instance=ExtResource("2_ioyet")]
 position = Vector2(80, 634)
@@ -57,5 +61,12 @@ position = Vector2(417, 592)
 
 [node name="Chicken" parent="Enemies" unique_id=1308718332 instance=ExtResource("10_2hhf6")]
 position = Vector2(254.00002, 631)
+jump_lifetime = 3.0
+gravity_curve = null
+
+[node name="Plant" parent="Enemies" unique_id=1918680530 instance=ExtResource("12_3aspl")]
+position = Vector2(370, 505)
+
+[node name="ObjectMaker" parent="." unique_id=1881204990 instance=ExtResource("12_3nj0v")]
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckjjkep1fvyi4"]
+
+[ext_resource type="Script" uid="uid://dj51gosrri1q0" path="res://life_timer.gd" id="1_vdw6e"]
+
+[node name="LifeTimer" type="Node" unique_id=1691738603]
+script = ExtResource("1_vdw6e")
+
+[node name="Timer" type="Timer" parent="." unique_id=2101978044]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

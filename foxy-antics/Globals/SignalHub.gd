@@ -1,11 +1,10 @@
 extends Node
 
+signal spawn_scene(position: Vector2, scene: PackedScene)
+signal spawn_bullet(velocity: Vector2, start_position: Vector2, scene: PackedScene)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func emit_spawn_scene(position: Vector2, scene: PackedScene) -> void:
+	spawn_scene.emit(position, scene)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func emit_spawn_bullet(velocity: Vector2, start_position: Vector2, scene: PackedScene) -> void:
+	spawn_bullet.emit(velocity, start_position, scene)

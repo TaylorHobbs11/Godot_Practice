@@ -31,6 +31,8 @@ func _update_behaviour(_delta: float) -> void:
 			handle_rage_lateral_movement()
 
 func change_state(new_state: PigState) -> void:
+	if _hit:
+		return
 	_state = new_state
 	match _state:
 		PigState.IDLE:
