@@ -13,6 +13,8 @@ collision_mask = 0
 script = ExtResource("1_vqugw")
 explosion = ExtResource("2_iaeqy")
 pickup = ExtResource("3_2xsrv")
+pickup_chance = null
+points = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=809693992]
 shape = SubResource("RectangleShape2D_3xd07")

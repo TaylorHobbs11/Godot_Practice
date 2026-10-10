@@ -1,32 +1,28 @@
-[gd_scene format=4 uid="uid://dkbgjf5m13h5b"]
+[gd_scene format=3 uid="uid://dkbgjf5m13h5b"]
 
 [ext_resource type="PackedScene" uid="uid://danqnrxdvgu4" path="res://Scenes/game_hud/game_hud.tscn" id="1_gu4e4"]
 [ext_resource type="Script" uid="uid://c2oky2mew6mvm" path="res://Scenes/level_base/level_base.gd" id="1_rj88n"]
 [ext_resource type="TileSet" uid="uid://dyf6f7tp7263t" path="res://Resources/tiles.tres" id="2_4mgu5"]
 [ext_resource type="PackedScene" uid="uid://dpku6jrfti7bt" path="res://Scenes/player/player.tscn" id="2_ioyet"]
 [ext_resource type="PackedScene" uid="uid://dauuay0r21cmn" path="res://Scenes/Effects/explosion.tscn" id="2_w2ekg"]
+[ext_resource type="PackedScene" uid="uid://c35y7hp585cnm" path="res://Scenes/level_flag.tscn" id="5_bwxnf"]
 [ext_resource type="PackedScene" uid="uid://csglnk06xrke1" path="res://Scenes/killzone/killzone.tscn" id="5_phxsx"]
-[ext_resource type="PackedScene" uid="uid://cjs4ih3cpksh7" path="res://Scenes/stomp_box.tscn" id="6_7bjju"]
-[ext_resource type="PackedScene" uid="uid://ddqxa52bwkh6k" path="res://Scenes/trampoline.tscn" id="7_0m4qr"]
-[ext_resource type="PackedScene" uid="uid://cn38yauk0ym8m" path="res://Scenes/enemies/snail.tscn" id="8_bwxnf"]
-[ext_resource type="PackedScene" uid="uid://bfwcsbb85pp1q" path="res://Scenes/enemies/pig.tscn" id="9_1ocjr"]
-[ext_resource type="PackedScene" uid="uid://ni6e4u0lgm20" path="res://Scenes/enemies/chicken.tscn" id="10_2hhf6"]
-[ext_resource type="PackedScene" uid="uid://dcyoamon6pgyu" path="res://Scenes/enemies/plant.tscn" id="12_3aspl"]
+[ext_resource type="AudioStream" uid="uid://ch3sva1mxgoc6" path="res://assets/sounds/Farm Frolics.ogg" id="9_1ocjr"]
 [ext_resource type="PackedScene" uid="uid://nah6awfdusw8" path="res://Scenes/object_maker.tscn" id="12_3nj0v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
-size = Vector2(46, 20)
 
 [node name="LevelBase" type="Node" unique_id=777403084]
 script = ExtResource("1_rj88n")
 explosion = ExtResource("2_w2ekg")
 
 [node name="Player" parent="." unique_id=925469703 instance=ExtResource("2_ioyet")]
-position = Vector2(80, 634)
+position = Vector2(9, 571)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=63915686]
-tile_map_data = PackedByteArray("AAAAACMAAAACAAAAAAABACMAAAACAAAAAAACACMAAAACAAAAAAADACMAAAACAAAAAAAEACMAAAACAAAAAAAFACMAAAACAAAAAAAGACMAAAACAAAAAAAHACMAAAACAAAAAAAIACMAAAACAAAAAAAJACMAAAACAAAAAAAMACMAAAACAAAAAAANACMAAAACAAAAAAAOACMAAAACAAAAAAAPACMAAAACAAAAAAAQACMAAAACAAcAAAARACMAAAACAAcAAAASACMAAAACAAcAAAATACMAAAACAAcAAAAUACMAAAACAAcAAAAVACMAAAACAAcAAAAWACMAAAACAAcAAAAXACMAAAACAAcAAAAYACMAAAACAAcAAAAZACMAAAACAAcAAAAaACMAAAACAAcAAAAbACMAAAACAAAAAAAcACMAAAACAAAAAAAdACMAAAACAAAAAAAeACMAAAACAAAAAAAfACMAAAACAAAAAAAgACMAAAACAAAAAAAiACMAAAACAAAAAAAjACMAAAACAAAAAAAkACMAAAACAAAAAAAlACMAAAACAAAAAAAmACMAAAACAAAAAAAnACMAAAACAAAAAAAoACMAAAACAAAAAAApACMAAAACAAAAAAAqACMAAAACAAAAAAArACMAAAACAAAAAAAsACMAAAACAAAAAAAtACMAAAACAAAAAAAuACMAAAACAAAAAAAvACMAAAACAAAAAAAwACMAAAACAAAAAAAxACMAAAACAAAAAAAyACMAAAACAAAAAAAzACMAAAACAAAAAAA0ACMAAAACAAAAAAA1ACMAAAACAAAAAAA2ACMAAAACAAAAAAA3ACMAAAACAAAAAAA4ACMAAAACAAAAAAA5ACMAAAACAAAAAAA6ACMAAAACAAAAAAA7ACMAAAACAAAAAAA8ACMAAAACAAAAAAA9ACMAAAACAAAAAAA+ACMAAAACAAAAAAA/ACMAAAACAAAAAABAACMAAAACAAAAAAD//yMAAAACAAAAAAAVACIAAAAFAAEAAAAWACIAAAAEAAUAAAAXACIAAAAEAAUAAAAXACEAAAACAAEAAAAYACEAAAAFAAEAAAAYACIAAAAEAAUAAAAWACEAAAACAAEAAAAVACEAAAABAAEAAAAeAB8AAAADAAcAAAAeAB4AAAADAAYAAAAeAB0AAAADAAYAAAAeABwAAAADAAEAAAAdAB8AAAACAAcAAAAdAB4AAAACAAYAAAAdAB0AAAACAAYAAAAdABwAAAACAAEAAAAcAB8AAAAEAAAAAAAcAB4AAAACAAYAAAAcAB0AAAAEAAUAAAAcABwAAAACAAEAAAAbAB8AAAACAAYAAAAbAB4AAAAFAAEAAAAbAB0AAAABAAYAAAAbABwAAAABAAEAAAAaACIAAAADAAYAAAAaACEAAAAEAAAAAAAaACAAAAAEAAUAAAAaAB8AAAACAAYAAAAaAB4AAAACAAEAAAAZACIAAAACAAYAAAAZACEAAAAEAAUAAAAZACAAAAAFAAEAAAAZAB8AAAABAAYAAAAZAB4AAAABAAEAAAAcACEAAAADAAcAAAAcACAAAAADAAYAAAAbACEAAAACAAcAAAAbACAAAAAEAAUAAAAYACAAAAABAAEAAAAUACIAAAACAAEAAAATACIAAAACAAEAAAASACIAAAACAAEAAAARACIAAAACAAEAAAAQACIAAAABAAEAAAAiACAAAAADAAcAAAAiAB8AAAADAAYAAAAiAB4AAAADAAYAAAAiAB0AAAADAAYAAAAiABwAAAADAAEAAAAhACAAAAACAAcAAAAhAB8AAAACAAYAAAAhAB4AAAACAAYAAAAhAB0AAAACAAYAAAAhABwAAAACAAEAAAAgACAAAAABAAcAAAAgAB8AAAABAAYAAAAgAB4AAAABAAYAAAAgAB0AAAABAAYAAAAgABwAAAABAAEAAAAoACAAAAADAAcAAAAoAB8AAAADAAYAAAAoAB4AAAADAAYAAAAoAB0AAAADAAYAAAAoABwAAAADAAEAAAAnACAAAAACAAcAAAAnAB8AAAACAAYAAAAnAB4AAAAEAAUAAAAnAB0AAAAEAAUAAAAnABwAAAACAAEAAAAmACAAAAABAAcAAAAmAB8AAAABAAYAAAAmAB4AAAABAAYAAAAmAB0AAAABAAYAAAAmABwAAAABAAEAAAAVABwAAAADAAAAAAAUABwAAAABAAAAAAAZABoAAAADAAAAAAAYABoAAAABAAAAAAAGACEAAAABAAAAAAAHACEAAAACAAAAAAAIACEAAAADAAAAAAAKACMAAAACAAAAAAALACMAAAACAAAAAAA=")
+z_index = 50
 tile_set = ExtResource("2_4mgu5")
+
+[node name="LevelFlag" parent="." unique_id=596740750 instance=ExtResource("5_bwxnf")]
+position = Vector2(4, 632)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1220392211]
 
@@ -35,38 +31,22 @@ tile_set = ExtResource("2_4mgu5")
 [node name="Killzone" parent="." unique_id=153358878 instance=ExtResource("5_phxsx")]
 position = Vector2(0, 699)
 
-[node name="TestHit" type="Area2D" parent="." unique_id=1045270085]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestHit" unique_id=463023487]
-position = Vector2(154, 593)
-shape = SubResource("RectangleShape2D_3xd07")
-debug_color = Color(0.98283476, 0.084735624, 0.258487, 0.41960785)
-
-[node name="StompBox" parent="." unique_id=982431984 instance=ExtResource("6_7bjju")]
-position = Vector2(138, 581)
-
-[node name="Trampoline" parent="." unique_id=1700980996 instance=ExtResource("7_0m4qr")]
-position = Vector2(114, 582)
-
 [node name="Enemies" type="Node" parent="." unique_id=1490361886]
 
-[node name="Snail" parent="Enemies" unique_id=2028764041 instance=ExtResource("8_bwxnf")]
-position = Vector2(612, 503)
-collision_layer = 1
-
-[node name="Pig" parent="Enemies" unique_id=1497965936 instance=ExtResource("9_1ocjr")]
-position = Vector2(417, 592)
-
-[node name="Chicken" parent="Enemies" unique_id=1308718332 instance=ExtResource("10_2hhf6")]
-position = Vector2(254.00002, 631)
-jump_lifetime = 3.0
-gravity_curve = null
-
-[node name="Plant" parent="Enemies" unique_id=1918680530 instance=ExtResource("12_3aspl")]
-position = Vector2(370, 505)
+[node name="Plants" type="Node" parent="." unique_id=252140300]
 
 [node name="ObjectMaker" parent="." unique_id=1881204990 instance=ExtResource("12_3nj0v")]
+
+[node name="Paths" type="Node" parent="." unique_id=1081018282]
+
+[node name="Coins" type="Node" parent="." unique_id=1842542629]
+
+[node name="MovingPlatforms" type="Node" parent="." unique_id=1099812325]
+
+[node name="Dangers" type="Node" parent="." unique_id=2083444233]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1409276521]
+stream = ExtResource("9_1ocjr")
+autoplay = true
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

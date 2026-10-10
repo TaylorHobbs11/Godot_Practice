@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://4tr38siainm8"]
+
+[ext_resource type="PackedScene" uid="uid://dkbgjf5m13h5b" path="res://Scenes/level_base/level_base.tscn" id="1_l6ydt"]
+[ext_resource type="PackedScene" uid="uid://c7o5g4pn2snrw" path="res://Scenes/coin_pickup.tscn" id="2_vixcw"]
+[ext_resource type="PackedScene" uid="uid://5u60qu234f5q" path="res://Scenes/Scrolling_background/level_1bg.tscn" id="2_yru36"]
+
+[node name="Level1" unique_id=777403084 instance=ExtResource("1_l6ydt")]
+
+[node name="Level1BG" parent="." index="0" unique_id=414135724 instance=ExtResource("2_yru36")]
+
+[node name="Player" parent="." index="1" unique_id=925469703]
+position = Vector2(50, 615)
+
+[node name="TileMapLayer" parent="." index="2" unique_id=63915686]
+tile_map_data = PackedByteArray("AAACACIAAAABAAAAAAADACIAAAACAAAAAAAEACIAAAACAAAAAAAFACIAAAACAAAAAAAGACIAAAACAAAAAAAHACIAAAACAAAAAAAIACIAAAACAAAAAAAJACIAAAACAAAAAAAKACIAAAACAAAAAAALACIAAAACAAAAAAAMACIAAAACAAAAAAANACIAAAACAAAAAAAOACIAAAACAAAAAAAPACIAAAACAAAAAAAQACIAAAACAAAAAAARACIAAAACAAAAAAASACIAAAADAAAAAAAUACIAAAABAAAAAAAVACIAAAACAAAAAAAWACIAAAACAAAAAAAXACIAAAACAAAAAAAYACIAAAADAAAAAAA=")
+
+[node name="LevelFlag" parent="." index="3" unique_id=596740750]
+position = Vector2(434, 613)
+
+[node name="CoinPickup" parent="Coins" parent_id_path=PackedInt32Array(1842542629) index="0" unique_id=1137208890 instance=ExtResource("2_vixcw")]
+position = Vector2(203, 599)
+
+[node name="CoinPickup2" parent="Coins" parent_id_path=PackedInt32Array(1842542629) index="1" unique_id=167920558 instance=ExtResource("2_vixcw")]
+position = Vector2(241, 600)
+
+[node name="CoinPickup3" parent="Coins" parent_id_path=PackedInt32Array(1842542629) index="2" unique_id=97457934 instance=ExtResource("2_vixcw")]
+position = Vector2(159, 601)

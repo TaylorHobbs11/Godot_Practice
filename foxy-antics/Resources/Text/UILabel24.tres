@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c6sxsvu1td7tm"]
+
+[ext_resource type="FontFile" uid="uid://dneel5ip6l2i4" path="res://assets/font/TitanOne-Regular.ttf" id="1_vn5o7"]
+
+[resource]
+font = ExtResource("1_vn5o7")
+font_size = 24
+outline_size = 4
+outline_color = Color(0.31061712, 0.31061712, 0.3106171, 1)

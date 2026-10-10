@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c7o5g4pn2snrw"]
+
+[ext_resource type="PackedScene" uid="uid://bsuyb1p27dq1g" path="res://Scenes/pickup.tscn" id="1_ugo37"]
+[ext_resource type="Script" uid="uid://bsbjbhro88yk1" path="res://Scenes/coin_pickup.gd" id="2_3ufb4"]
+[ext_resource type="Texture2D" uid="uid://bnqebw5d5ro7b" path="res://assets/items/coins.png" id="2_4shbp"]
+[ext_resource type="AudioStream" uid="uid://bt10omc4qeqa7" path="res://assets/sounds/242857__plasterbrain__coin-get.ogg" id="3_3ufb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4shbp"]
+atlas = ExtResource("2_4shbp")
+region = Rect2(0, 0, 40, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ufb4"]
+atlas = ExtResource("2_4shbp")
+region = Rect2(0, 44, 40, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25i6n"]
+atlas = ExtResource("2_4shbp")
+region = Rect2(0, 88, 40, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42pb2"]
+atlas = ExtResource("2_4shbp")
+region = Rect2(0, 132, 40, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na50r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4shbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ufb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25i6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42pb2")
+}],
+"loop": 2,
+"name": &"Default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6m251"]
+radius = 17.0
+
+[node name="CoinPickup" unique_id=1137208890 instance=ExtResource("1_ugo37")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_3ufb4")
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=778603616]
+sprite_frames = SubResource("SpriteFrames_na50r")
+animation = &"Default"
+frame_progress = 0.8951722
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1017090193]
+shape = SubResource("CircleShape2D_6m251")
+
+[node name="PickupSound" parent="." index="3" unique_id=2053657394]
+stream = ExtResource("3_3ufb4")

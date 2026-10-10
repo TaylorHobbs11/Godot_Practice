@@ -357,6 +357,7 @@ target_position = Vector2(-100, 0)
 
 [node name="StompBox" parent="." index="5" unique_id=982431984]
 position = Vector2(0, -25)
+points = 20
 
 [node name="CollisionShape2D" parent="HitArea" parent_id_path=PackedInt32Array(1520774534) index="0" unique_id=1812313260]
 position = Vector2(0, -10)

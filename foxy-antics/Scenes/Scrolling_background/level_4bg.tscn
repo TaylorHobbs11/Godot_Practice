@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ehlqq028o31e"]
+
+[ext_resource type="PackedScene" uid="uid://bnfh4qaf8abli" path="res://Scenes/Scrolling_background/ScrollingBG.tscn" id="1_mkm8j"]
+[ext_resource type="Texture2D" uid="uid://d2xfxbhdpdlbe" path="res://assets/Backgrounds/Cartoon_Forest_BG_04/Layers/Sky.png" id="2_1qhel"]
+[ext_resource type="Texture2D" uid="uid://b25pcl7digh86" path="res://assets/Backgrounds/Cartoon_Forest_BG_04/Layers/BG_Decor.png" id="3_wfygv"]
+[ext_resource type="Texture2D" uid="uid://c3qsqhk15ml3p" path="res://assets/Backgrounds/Cartoon_Forest_BG_04/Layers/Middle_Decor.png" id="4_f5ydw"]
+[ext_resource type="Texture2D" uid="uid://bhv6gqh60qyqe" path="res://assets/Backgrounds/Cartoon_Forest_BG_04/Layers/Foreground.png" id="5_r225q"]
+[ext_resource type="Texture2D" uid="uid://btib8554bxvc7" path="res://assets/Backgrounds/Cartoon_Forest_BG_04/Layers/Ground.png" id="6_xk0b6"]
+
+[node name="Level4BG" unique_id=414135724 instance=ExtResource("1_mkm8j")]
+
+[node name="Sprite2D" parent="SkyParallax" parent_id_path=PackedInt32Array(673875229) index="0" unique_id=865975518]
+texture = ExtResource("2_1qhel")
+
+[node name="Sprite2D" parent="BackgroundParallax" parent_id_path=PackedInt32Array(1362444338) index="0" unique_id=983649874]
+texture = ExtResource("3_wfygv")
+
+[node name="Sprite2D" parent="MiddleGroundParallax" parent_id_path=PackedInt32Array(197642192) index="0" unique_id=1495948982]
+texture = ExtResource("4_f5ydw")
+
+[node name="Sprite2D" parent="ForeGroundParallax" parent_id_path=PackedInt32Array(1505412517) index="0" unique_id=1719235248]
+texture = ExtResource("5_r225q")
+
+[node name="Sprite2D" parent="GroundParallax" parent_id_path=PackedInt32Array(45272296) index="0" unique_id=154846670]
+texture = ExtResource("6_xk0b6")

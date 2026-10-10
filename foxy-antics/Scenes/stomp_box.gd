@@ -17,7 +17,10 @@ func trigger() -> void:
 	if _hit: 
 		return
 	_hit = true
-	stomped.emit()	
+	stomped.emit()
+	SignalHub.emit_scored(points)
+	SignalHub.emit_spawn_score_effect(global_position, points)
+	SignalHub.emit_enemy_killed()
 	if pickup and randf_range(0.0, 1.0) <= pickup_chance:
 		SignalHub.emit_spawn_scene(global_position, pickup)
 	if explosion:

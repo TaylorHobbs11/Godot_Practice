@@ -1,5 +1,7 @@
 class_name EnemyBase extends CharacterBody2D
 
+const GROUP_NAME: String = "Enemy"
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var floor_detection: RayCast2D = $FloorDetection
 @onready var wall_detection: RayCast2D = $WallDetection
@@ -13,6 +15,9 @@ class_name EnemyBase extends CharacterBody2D
 var _direction: int = -1
 var _hit: bool = false
 
+
+func _enter_tree() -> void:
+	add_to_group(GROUP_NAME)
 
 func _physics_process(delta: float) -> void:
 	_update_behaviour(delta)
@@ -49,6 +54,7 @@ func _on_stomp_box_stomped() -> void:
 	animated_sprite_2d.play("Hurt")
 	set_physics_process.call_deferred(false)
 	hit_area.set_monitorable.call_deferred(false)
+	SignalHub.emit_enemy_killed()
 
 
 func _on_animation_finished() -> void:

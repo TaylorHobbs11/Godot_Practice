@@ -100,6 +100,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="Node2D" unique_id=663587058]
+z_index = 100
 script = ExtResource("1_p8ya4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776937688]

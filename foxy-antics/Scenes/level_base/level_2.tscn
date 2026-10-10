@@ -1,0 +1,17 @@
+[gd_scene format=4 uid="uid://cdrgxu85rsbmw"]
+
+[ext_resource type="PackedScene" uid="uid://dkbgjf5m13h5b" path="res://Scenes/level_base/level_base.tscn" id="1_v18m0"]
+[ext_resource type="PackedScene" uid="uid://btfhm1q4cgto7" path="res://Scenes/Scrolling_background/level_2bg.tscn" id="2_xonok"]
+
+[node name="Level2" unique_id=777403084 instance=ExtResource("1_v18m0")]
+
+[node name="Level2BG" parent="." index="0" unique_id=414135724 instance=ExtResource("2_xonok")]
+
+[node name="Player" parent="." index="1" unique_id=925469703]
+position = Vector2(73, 615)
+
+[node name="TileMapLayer" parent="." index="2" unique_id=63915686]
+tile_map_data = PackedByteArray("AAADACIAAAAMAAYAAAAFACIAAAANAAYAAAAGACIAAAAOAAUAAAAGACEAAAANAAQAAAAHACEAAAANAAYAAAAIACEAAAANAAYAAAAJACEAAAAOAAUAAAAJACAAAAANAAQAAAAKACAAAAAOAAUAAAAKAB8AAAAPAAUAAAAKAB4AAAANAAQAAAALAB4AAAANAAYAAAAMAB4AAAANAAYAAAANAB4AAAAOAAQAAAANAB8AAAANAAUAAAAOAB8AAAANAAYAAAAPAB8AAAANAAYAAAAQAB8AAAANAAYAAAARAB8AAAAOAAUAAAARAB4AAAAPAAUAAAARAB0AAAAPAAUAAAARABwAAAAPAAUAAAARABsAAAAPAAQAAAAEACIAAAANAAYAAAA=")
+
+[node name="LevelFlag" parent="." index="3" unique_id=596740750]
+position = Vector2(267, 561)

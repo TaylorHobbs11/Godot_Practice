@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjs4ih3cpksh7" path="res://Scenes/stomp_box.tscn" id="2_a5lfk"]
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=2028764041]
+z_index = 30
 collision_layer = 32
 script = ExtResource("1_ddjcs")
 

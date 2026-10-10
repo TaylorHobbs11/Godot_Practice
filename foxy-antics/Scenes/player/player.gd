@@ -25,8 +25,11 @@ var _start_position: Vector2
 @export var camera_right: int = 10000
 @export var camera_top: int = -10000
 @export var camera_bottom: int = 10000
-@onready var player_camera: Camera2D = $PlayerCamera
+@onready var player_camera: PlayerCamera = $PlayerCamera
 
+@export_category("Life")
+@export var starting_lives: int = 2
+var _lives: int
 const GROUP_NAME: String = "Player"
 
 var _damage_areas: Array[Area2D]
@@ -41,11 +44,15 @@ var is_hurt: bool = false
 var is_invincible: bool = false
 var _invincible_tween: Tween
 
+
 @onready var _gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 
 func _ready() -> void:
+	_lives = starting_lives
 	_start_position = position
 	set_camera_limits()
+	await get_tree().process_frame
+	SignalHub.emit_player_hit(_lives)
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
@@ -97,6 +104,7 @@ func handle_vertical_movement(delta: float) -> void:
 func fell_off() -> void:
 	position = _start_position
 	set_position.call_deferred(_start_position)
+	reduce_lives()
 
 func go_invincible() -> void:
 	if is_invincible: return
@@ -118,6 +126,7 @@ func apply_hurt_jump() -> void:
 	if is_hurt:
 		return
 	is_hurt = true
+	player_camera.hit()
 	hurt_timer.start()
 	hurt_sound.play()
 	velocity = _hurt_velocity
@@ -125,6 +134,7 @@ func apply_hurt_jump() -> void:
 func apply_hit() -> void:
 	if is_invincible:
 		return
+	reduce_lives()
 	apply_hurt_jump()
 	go_invincible()
 
@@ -161,3 +171,7 @@ func _on_stomp_area_area_entered(area: Area2D) -> void:
 		print("Collided with " + area.name)
 		apply_bounce.call_deferred(area.bounce_velocity)
 		area.bounce()
+
+func reduce_lives() -> void:
+	_lives -= 1
+	SignalHub.emit_player_hit(_lives)

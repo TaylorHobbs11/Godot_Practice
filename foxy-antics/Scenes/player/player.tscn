@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kduxgf7wgu6q" path="res://assets/player/player.png" id="2_mxepk"]
 [ext_resource type="PackedScene" uid="uid://b6d266u8kc0s8" path="res://Scenes/player/player_camera.tscn" id="3_mxepk"]
 [ext_resource type="AudioStream" uid="uid://dgsctfc45r16f" path="res://assets/sounds/jump.wav" id="4_ca0mu"]
+[ext_resource type="Script" uid="uid://cc6u30ryl62oc" path="res://Scenes/player/player_camera.gd" id="4_xxarj"]
 [ext_resource type="AudioStream" uid="uid://b42xdf6b6082m" path="res://assets/sounds/land.wav" id="5_6upyo"]
 [ext_resource type="AudioStream" uid="uid://v4nymmgxy8qp" path="res://assets/sounds/damage.wav" id="6_6upyo"]
 
@@ -217,7 +218,7 @@ height = 12.0
 size = Vector2(10, 2)
 
 [node name="Player" type="CharacterBody2D" unique_id=925469703]
-z_index = 1
+z_index = 40
 collision_layer = 2
 script = ExtResource("1_eo61r")
 camera_left = 0
@@ -235,6 +236,7 @@ position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_3xd07")
 
 [node name="PlayerCamera" parent="." unique_id=1258249551 instance=ExtResource("3_mxepk")]
+script = ExtResource("4_xxarj")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1624623437]
 stream = ExtResource("4_ca0mu")
