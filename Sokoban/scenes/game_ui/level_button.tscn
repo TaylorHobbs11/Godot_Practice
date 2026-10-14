@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ifm4ma8e0mjc"]
+
+[ext_resource type="Texture2D" uid="uid://cprpvyupkb0r" path="res://assets/blue_panel.png" id="1_um7fs"]
+[ext_resource type="FontFile" uid="uid://cifd7mrdvxqcs" path="res://assets/TitanOne-Regular.ttf" id="1_xf78i"]
+[ext_resource type="Script" uid="uid://cxu52wvb040ho" path="res://scenes/game_ui/level_button.gd" id="3_w6a1t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xd07"]
+texture = ExtResource("1_um7fs")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="LevelButton" type="Button" unique_id=682599863]
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_xf78i")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_3xd07")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3xd07")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3xd07")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_3xd07")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3xd07")
+text = "00"
+script = ExtResource("3_w6a1t")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

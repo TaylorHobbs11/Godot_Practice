@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://di52p6c32h7iv"]
+
+[ext_resource type="TileSet" uid="uid://bj77v4q8rwc3y" path="res://resources/level_tiles.tres" id="1_7qdle"]
+
+[node name="Tiles" type="Node2D" unique_id=722840941]
+modulate = Color(0.83889705, 0.83889705, 0.8388969, 1)
+
+[node name="FloorTiles" type="TileMapLayer" parent="." unique_id=1236596889]
+tile_set = ExtResource("1_7qdle")
+
+[node name="WallTiles" type="TileMapLayer" parent="." unique_id=1692045412]
+tile_set = ExtResource("1_7qdle")
+
+[node name="TargetTiles" type="TileMapLayer" parent="." unique_id=1004237322]
+tile_set = ExtResource("1_7qdle")
+
+[node name="BoxTiles" type="TileMapLayer" parent="." unique_id=850962125]
+tile_set = ExtResource("1_7qdle")

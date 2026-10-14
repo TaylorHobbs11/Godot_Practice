@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnnokp4mvjjsi"]
+
+[ext_resource type="Texture2D" uid="uid://bsfclnvmg2001" path="res://assets/Bg.png" id="1_h3e3j"]
+[ext_resource type="Script" uid="uid://dk0welvsd71dt" path="res://scenes/level/level.gd" id="1_i166f"]
+[ext_resource type="PackedScene" uid="uid://dd372m1sc8s7m" path="res://scenes/game_ui/game_ui.tscn" id="2_nbgty"]
+[ext_resource type="PackedScene" uid="uid://di52p6c32h7iv" path="res://scenes/tiles/tiles.tscn" id="4_qkmgm"]
+[ext_resource type="PackedScene" uid="uid://dtt3qf6tcin08" path="res://scenes/player/player.tscn" id="5_hnne4"]
+
+[node name="Level" type="Node" unique_id=720878197]
+script = ExtResource("1_i166f")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1825917000]
+position = Vector2(690, 529)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("1_h3e3j")
+
+[node name="Tiles" parent="." unique_id=722840941 instance=ExtResource("4_qkmgm")]
+
+[node name="Player" parent="." unique_id=1821724424 instance=ExtResource("5_hnne4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=645920440]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=379966749 instance=ExtResource("2_nbgty")]
